@@ -83,6 +83,7 @@ public class LoginServiceImpl implements LoginService {
         Set<String> roleSet =
                 roleVoList.stream().map(RoleVo::getLabel).collect(Collectors.toSet());
         userVo.setRoleLabels(roleSet);
+        userVo.setRoleList(roleVoList);
         //颁发JwtToken
         Map<String,Object> map = new HashMap<>();
         map.put("currentUser", JSONUtil.toJsonStr(userVo));
